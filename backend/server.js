@@ -10,13 +10,19 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, { cors: { origin: "*" } });
+const io = new Server(server, { cors: { origin: process.env.FrontendURL } });
 
 // Connect to database
 await connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors(
+  {
+    origin: process.env.FrontendURL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  }
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
