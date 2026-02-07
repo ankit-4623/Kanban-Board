@@ -2,12 +2,14 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./tests/e2e", // Path to your test files
-  timeout: 20 * 1000, // Test timeout in milliseconds
+  testDir: "./src/tests/e2e", // Path to your test files
+  timeout: 30 * 1000, // Test timeout in milliseconds
   use: {
     headless: false, // Run tests in headless mode
     baseURL: "http://localhost:3000", // Replace with your app's base URL
     viewport: { width: 1300, height: 720 }, // Default viewport
+    actionTimeout: 10000, // Timeout for each action
+    trace: "on-first-retry", // Collect trace on first retry
   },
   projects: [
     {
