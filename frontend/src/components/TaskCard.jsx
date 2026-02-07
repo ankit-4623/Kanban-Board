@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import {SquarePen, Trash} from 'lucide-react'
 
 const priorityColors = {
   low: '#4caf50',
@@ -9,9 +10,9 @@ const priorityColors = {
 };
 
 const categoryLabels = {
-  bug: '🐛 Bug',
-  feature: '✨ Feature',
-  enhancement: '🔧 Enhancement',
+  bug: 'Bug',
+  feature: 'Feature',
+  enhancement: 'Enhancement',
 };
 
 function TaskCard({ task, onEdit, onDelete }) {
@@ -70,7 +71,7 @@ function TaskCard({ task, onEdit, onDelete }) {
             onEdit(task);
           }}
         >
-          ✏️
+         <SquarePen/>
         </button>
         <button
           className="btn-delete"
@@ -79,7 +80,7 @@ function TaskCard({ task, onEdit, onDelete }) {
             onDelete(task._id);
           }}
         >
-          🗑️
+         <Trash/>
         </button>
       </div>
     </div>

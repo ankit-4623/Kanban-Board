@@ -37,7 +37,7 @@ function KanbanBoard() {
     })
   );
 
-  // Initialize WebSocket connection
+  
   useEffect(() => {
     const socketInstance = connectToWebSocket();
     setSocket(socketInstance);
@@ -46,9 +46,9 @@ function KanbanBoard() {
       console.log('Connected to WebSocket server');
       setIsConnected(true);
 
-      // Fetch all tasks on connection
+ 
       socketInstance.emit('task:getAll', (response) => {
-        console.log(response)
+        // console.log(response)
         if (response.success) {
           setTasks(response.tasks);
         }
@@ -61,7 +61,7 @@ function KanbanBoard() {
     });
 
     socketInstance.on('task:updated', (updatedTask) => {
-      console.log(updatedTask)
+      // console.log(updatedTask)
       setTasks((prev) =>
         prev.map((t) => (t._id === updatedTask._id ? updatedTask : t))
       );
@@ -225,8 +225,7 @@ function KanbanBoard() {
   }
 
   return (
-    <div className="kanban-container">
-      {/* Header */}
+    <div className="kanban-container">     
       <div className="kanban-header">
         <div className="header-left">
           <h2>Kanban Board</h2>

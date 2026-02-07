@@ -8,9 +8,9 @@ const priorityOptions = [
 ];
 
 const categoryOptions = [
-  { value: 'bug', label: '🐛 Bug' },
-  { value: 'feature', label: '✨ Feature' },
-  { value: 'enhancement', label: '🔧 Enhancement' },
+  { value: 'bug', label: 'Bug' },
+  { value: 'feature', label: 'Feature' },
+  { value: 'enhancement', label: 'Enhancement' },
 ];
 
 const statusOptions = [
